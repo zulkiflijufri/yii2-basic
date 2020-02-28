@@ -39,12 +39,12 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `name`, `comment`) VALUES
-(8, 'Kalsum', 'Learning Yii2 in the night'),
-(9, 'Zulkifli', 'Add access control for method delete,edit,and update'),
-(10, 'Fakhri', 'Aku masih SD'),
-(11, 'Yunita', 'Aku rencana udah mau kuliah'),
-(12, 'Wiwi', 'Aku sendiri baru pulang dari Malaysia'),
-(13, 'Arief', '2 orang yg sebelumya itu adalah anak saya');
+(1, 'Kalsum', 'Learning Yii2 in the night'),
+(2, 'Zulkifli', 'Add access control for method delete,edit,and update'),
+(3, 'Fakhri', 'Aku masih SD'),
+(4, 'Yunita', 'Aku rencana udah mau kuliah'),
+(5, 'Wiwi', 'Aku sendiri baru pulang dari Malaysia'),
+(6, 'Arief', '2 orang yg sebelumya itu adalah anak saya');
 
 --
 -- Indexes for dumped tables
