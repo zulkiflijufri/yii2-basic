@@ -31,14 +31,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `comment` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `message` varchar(100) NOT NULL
+  `comment` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `comment`
 --
 
-INSERT INTO `comment` (`id`, `name`, `message`) VALUES
+INSERT INTO `comment` (`id`, `name`, `comment`) VALUES
 (8, 'Kalsum', 'Learning Yii2 in the night'),
 (9, 'Zulkifli', 'Add access control for method delete,edit,and update'),
 (10, 'Fakhri', 'Aku masih SD'),
