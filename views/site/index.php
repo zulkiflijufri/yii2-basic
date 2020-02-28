@@ -5,7 +5,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Yii2 App';
 ?>
 <div class="site-index" style="background-color: #f0efef;">
 
