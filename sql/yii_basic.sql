@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 28 Feb 2020 pada 12.46
+-- Generation Time: 18 Mar 2020 pada 12.52
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -39,12 +39,32 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `name`, `comment`) VALUES
-(1, 'Kalsum', 'Learning Yii2 in the night'),
-(2, 'Zulkifli', 'Add access control for method delete,edit,and update'),
-(3, 'Fakhri', 'Aku masih SD'),
-(4, 'Yunita', 'Aku rencana udah mau kuliah'),
-(5, 'Wiwi', 'Aku sendiri baru pulang dari Malaysia'),
-(6, 'Arief', '2 orang yg sebelumya itu adalah anak saya');
+(1, 'Zulkifli', 'Add access control for method delete,edit,and update'),
+(2, 'Fakhri', 'Aku masih SD'),
+(3, 'Yunita', 'Aku rencana udah mau kuliah'),
+(4, 'Wiwi', 'Aku sendiri baru pulang dari Malaysia'),
+(5, 'Arief', '2 orang yg sebelumya itu adalah anak saya');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `age` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `employee`
+--
+
+INSERT INTO `employee` (`id`, `name`, `age`) VALUES
+(1, 'Zulkifli Jufri', 21),
+(2, 'Ummi Kalsum', 18),
+(3, 'Yunita', 12);
 
 --
 -- Indexes for dumped tables
@@ -57,6 +77,12 @@ ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -65,6 +91,12 @@ ALTER TABLE `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
