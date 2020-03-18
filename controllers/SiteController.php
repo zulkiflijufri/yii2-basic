@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\Employee;
 use app\models\Comment;
 use app\models\ContactForm;
 use app\models\LoginForm;
@@ -22,10 +23,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout','comment','delete-comment','edit-comment','update-comment'],
+                'only' => ['logout', 'comment', 'delete-comment', 'edit-comment', 'update-comment'],
                 'rules' => [
                     [
-                        'actions' => ['logout','comment','delete-comment','edit-comment','update-comment'],
+                        'actions' => ['logout', 'comment', 'delete-comment', 'edit-comment', 'update-comment'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -136,17 +137,16 @@ class SiteController extends Controller
     {
         $comment  = new Comment();
 
-        if ($comment->load(Yii::$app->request->post()) && $comment->validate())
-        {
+        if ($comment->load(Yii::$app->request->post()) && $comment->validate()) {
             //$comment->load(Yii::$app->request->post());
             $comment->save();
 
-            Yii::$app->session->setFlash('send_success','Your comment save successfully');
+            Yii::$app->session->setFlash('send_success', 'Your comment save successfully');
 
             return $this->redirect(['result-comment']);
         }
 
-        return $this->render('comment',[
+        return $this->render('comment', [
             'comment' => $comment
         ]);
     }
@@ -164,7 +164,7 @@ class SiteController extends Controller
 
         $comments = $data->orderBy('id')->offset($pagination->offset)->limit($pagination->limit)->all();
 
-        return $this->render('result-comment',[
+        return $this->render('result-comment', [
             'comments' => $comments,
             'pagination' => $pagination
         ]);
@@ -178,12 +178,12 @@ class SiteController extends Controller
 
             $comment->save();
 
-            Yii::$app->session->setFlash('update_success','Comment update successfully');
+            Yii::$app->session->setFlash('update_success', 'Comment update successfully');
 
             return $this->redirect('result-comment');
         }
 
-        return $this->render('edit',[
+        return $this->render('edit', [
             'comment' => $comment
         ]);
     }
@@ -194,8 +194,32 @@ class SiteController extends Controller
 
         $comment->delete();
 
-        Yii::$app->session->setFlash('delete_success','Delete comment successfully');
+        Yii::$app->session->setFlash('delete_success', 'Delete comment successfully');
 
         return $this->redirect('result-comment');
+    }
+
+    public function actionQuery()
+    {
+        $db = Yii::$app->db;
+        $command = $db->createCommand("SELECT * from employee");
+        $employess = $command->queryAll(); //array
+
+        foreach ($employess as $em) {
+            echo "<br>";
+            echo "Name : ".$em['name'];
+            echo " Age : ".$em['age'];
+        }
+    }
+
+    public function actionActiveRecord()
+    {
+        $employess = Employee::find()->all(); //object
+
+        foreach ($employess as $em) {
+            echo "<br>";
+            echo "Name : ".$em->name;
+            echo " Age : ".$em->age;
+        }
     }
 }

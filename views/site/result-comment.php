@@ -9,23 +9,6 @@ $this->title = 'Result Comment';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<?php if (Yii::$app->session->hasFlash('send_success')) : ?>
-
-	<div class="alert alert-success">
-		<?= Yii::$app->session->getFlash('send_success'); ?>
-	</div>
-
-<?php elseif (Yii::$app->session->hasFlash('delete_success')): ?>
-    <div class="alert alert-warning">
-        <?= Yii::$app->session->getFlash('delete_success'); ?>
-    </div>
-
-<?php elseif (Yii::$app->session->hasFlash('update_success')): ?>
-    <div class="alert alert-info">
-        <?= Yii::$app->session->getFlash('update_success'); ?>
-    </div>
-<?php endif; ?>
-
 <h3 align="center"><?= Html::encode('Result comment'); ?></h3>
 <br><br>
 
@@ -47,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td><?= $comment->name ?></td>
                         <td><?= $comment->comment ?></td>
                         <td>
-                            <a class="btn btn-sm btn-danger" href="<?= Url::to(['delete-comment', 'id' => $comment->id]) ?>">Delete</a>
-                            <a class="btn btn-sm btn-info" href="<?= Url::to(['edit-comment', 'id' => $comment->id]) ?>">Edit</a>
+                            <?= Html::a('Delete',['delete-comment','id' => $comment->id], ['class' => 'btn btn-sm btn-danger']); ?>
+                            <?= Html::a('Edit',['edit-comment','id' => $comment->id], ['class' => 'btn btn-sm btn-info']); ?>
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -58,9 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 </tr>
             <?php endif ?>
         </table>
-
+        <br>
             <!-- link pagination -->
-            <?= LinkPager::widget(['pagination' => $pagination]); ?>
+            <div class="text-center">
+                <?= LinkPager::widget(['pagination' => $pagination]); ?>
+            </div>
         </div>
   </div>
 </div>
